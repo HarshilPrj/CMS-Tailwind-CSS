@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Teams = () => {
+    const navigate = useNavigate();
     const [data, SetData] = useState([]);
     const [count, SetCount] = useState(0);
     const [like, SetLike] = useState(false);
@@ -13,8 +15,13 @@ const Teams = () => {
             )
             .then((res) => {
                 SetData(res.data);
+            })
+            .catch((err) => {
+                if (err) {
+                    navigate("/");
+                }
             });
-    }, [count]);
+    }, [count, navigate]);
 
     let handleClickUpdate = (id) => {
         console.log(like);

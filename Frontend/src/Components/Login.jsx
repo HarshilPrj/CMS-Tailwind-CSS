@@ -3,6 +3,7 @@ import { loginIn } from "../Actions/index";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -19,6 +20,10 @@ const Login = () => {
             })
             .then((res) => {
                 if (res.data.token) {
+                    Cookies.set("userToken2", res.data.token, {
+                        expires: 1,
+                        httpOnly: true,
+                    });
                     dispatch(loginIn());
                     navigate("/dashboard");
                     sessionStorage.setItem(

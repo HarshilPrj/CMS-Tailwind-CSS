@@ -5,22 +5,9 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
 const rootRouter = require("./rootRouter");
 
-app.use(cookieParser());
-app.set("trust proxy", 1);
-app.use(
-    session({
-        name: "Token",
-        secret: process.env.JWT_SECKETY,
-        resave: false,
-        saveUninitialized: true,
-        // cookie: {
-        //     expires: 600000,
-        // },
-    })
-);
+app.use(cookieParser({ history: true }));
 app.use(express.json());
 app.use(cors());
 app.use(rootRouter);

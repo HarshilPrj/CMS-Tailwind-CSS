@@ -1,9 +1,16 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require(".././database/dbConfig");
+const UUID = require("uuid");
 
 const Product = sequelize.define(
     "products",
     {
+        id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            primaryKey: true,
+            defaultValue: UUID.v4(),
+        },
         product_name: {
             type: DataTypes.CITEXT,
             allowNull: false,
@@ -29,5 +36,7 @@ const Product = sequelize.define(
         timestamps: false,
     }
 );
+
+sequelize.sync();
 
 module.exports = Product;

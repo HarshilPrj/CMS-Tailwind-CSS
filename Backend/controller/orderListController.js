@@ -1,22 +1,17 @@
 const Product = require("../models/ProductModel");
+const Sequelize = require("../database/dbConfig");
 
 const orderList = async (req, res) => {
     const { page, limit, search } = req.query;
-    let data = [];
 
     try {
-        if (search === 3 || search === "3") {
-            data = await Product.findAndCountAll({
-                offset: (page - 1) * limit,
-                limit: limit,
-            });
-        } else {
-            data = await Product.findAndCountAll({
-                offset: (page - 1) * limit,
-                limit: limit,
-                where: { status: search },
-            });
-        }
+        let data = await Product.findAndCountAll({
+            offset: (page - 1) * limit,
+            limit: limit,
+            where: Sequelize.literal(
+                `status ${search === "3" ? "!=" : "="} ${search}`
+            ),
+        });
 
         return res.status(200).send(data);
     } catch (error) {

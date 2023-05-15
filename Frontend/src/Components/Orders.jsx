@@ -137,7 +137,10 @@ const Orders = () => {
                     </tbody>
                 </table>
                 <div className="flex p-4 justify-between bg-gray-50">
-                    <p className="flex">Showing 1 To 5 of {ent} Entries</p>
+                    <p className="flex">
+                        Showing 1 To {limit <= ent ? limit : ent} of {ent}{" "}
+                        Entries
+                    </p>
                     <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white">
                         <select
                             className="border-2 text-gray-900 text-sm rounded-lg block w-full p-2"

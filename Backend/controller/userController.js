@@ -9,29 +9,47 @@ const getUsers = async (req, res) => {
     const { page, limit, search } = req.query;
 
     try {
-        let data = await User.findAll({
-            attributes: { exclude: ["pass"] },
-            include: [
-                {
-                    model: UserRole,
-                    attributes: ["user_role", ["id", "RoleID"]],
-                },
-            ],
-            order: ["created_on"],
-            offset: (page - 1) * limit,
-            limit: limit,
+        if (!req.cookies.UserToken) {
+            return res.status(400).send({ error: "Login Required" });
+        }
+        let sessionId = jwt.verify(
+            req.cookies.UserToken,
+            process.env.JWT_SECKETY
+        );
+
+        const user = await User.findOne({
             where: {
-                [Op.or]: [
-                    sequelize.where(sequelize.col("first_name")),
-                    {
-                        first_name: {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-                ],
+                [Op.and]: [{ id: sessionId.payload }, { is_enable: true }],
             },
         });
-        return res.status(200).send(data);
+
+        if (!user) {
+            return res.status(400).send({ error: "Login Required" });
+        } else {
+            let data = await User.findAll({
+                attributes: { exclude: ["pass"] },
+                include: [
+                    {
+                        model: UserRole,
+                        attributes: ["user_role", ["id", "RoleID"]],
+                    },
+                ],
+                order: ["created_on"],
+                offset: (page - 1) * limit,
+                limit: limit,
+                where: {
+                    [Op.or]: [
+                        sequelize.where(sequelize.col("first_name")),
+                        {
+                            first_name: {
+                                [Op.like]: `%${search}%`,
+                            },
+                        },
+                    ],
+                },
+            });
+            return res.status(200).send(data);
+        }
     } catch (error) {
         return res
             .status(404)
@@ -109,7 +127,8 @@ const loginUser = async (req, res) => {
             let token = jwt.sign({ payload }, process.env.JWT_SECKETY, {
                 expiresIn: 60 * 60,
             });
-            res.cookie("Token", token);
+            res.cookie("UserToken", token, { maxAge: 900000, httpOnly: true });
+
             return res
                 .status(200)
                 .send({ loginUser, token, msg: "Login Successfully" });
@@ -123,4 +142,19 @@ const loginUser = async (req, res) => {
     }
 };
 
-module.exports = { getUsers, createUser, updateUser, loginUser };
+const logoutUser = (req, res) => {
+    try {
+        if (req.cookies.UserToken) {
+            res.clearCookie("UserToken");
+            return res.status(200).send({ msg: "Logout Successfully" });
+        } else {
+            return res.status(400).send({ error: "Login Required" });
+        }
+    } catch (error) {
+        return res
+            .status(404)
+            .send({ stack: error.stack, message: error.message });
+    }
+};
+
+module.exports = { getUsers, createUser, updateUser, loginUser, logoutUser };
