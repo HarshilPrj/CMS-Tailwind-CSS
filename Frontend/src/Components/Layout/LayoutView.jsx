@@ -10,6 +10,7 @@ import Teams from "../Teams";
 import Messages from "../Messages";
 import { useSelector } from "react-redux";
 import Orders from "../Orders";
+import AddUser from "../AddUser";
 
 const LayoutView = () => {
     const myState = useSelector((state) => state.checkLogin);
@@ -45,6 +46,7 @@ const LayoutView = () => {
                         <Route path="/teams" element={<Teams />} />
                         <Route path="/massages" element={<Messages />} />
                         <Route path="/orders" element={<Orders />} />
+                        <Route path="/signUp" element={<AddUser />} />
                     </Routes>
                 </div>
             </AuthContext.Provider>

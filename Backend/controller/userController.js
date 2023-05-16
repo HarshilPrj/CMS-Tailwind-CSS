@@ -7,6 +7,7 @@ const sequelize = require("../database/dbConfig");
 
 const getUsers = async (req, res) => {
     const { page, limit, search } = req.query;
+    req.cookies = req.body.Cookies;
 
     try {
         if (!req.cookies.UserToken) {

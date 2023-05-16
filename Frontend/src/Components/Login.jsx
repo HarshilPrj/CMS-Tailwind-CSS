@@ -3,7 +3,8 @@ import { loginIn } from "../Actions/index";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Cookies from "js-cookie";
+import SetCookies from "./Cookies/SetCookies";
+import RemoveCookies from "./Cookies/RemoveCookies";
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -20,10 +21,8 @@ const Login = () => {
             })
             .then((res) => {
                 if (res.data.token) {
-                    Cookies.set("userToken2", res.data.token, {
-                        expires: 1,
-                        httpOnly: true,
-                    });
+                    RemoveCookies("UserToken");
+                    SetCookies("UserToken", res.data.token);
                     dispatch(loginIn());
                     navigate("/dashboard");
                     sessionStorage.setItem(
@@ -77,7 +76,7 @@ const Login = () => {
                     <div className="flex flex-col mt-6">
                         <div className="flex flex-col">
                             <span className="px-1 text-sm text-gray-600">
-                                Username
+                                Email
                             </span>
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
@@ -96,15 +95,24 @@ const Login = () => {
                                 type="Password"
                                 className="text-md block px-3 py-2 rounded-lg w-[17.5rem] bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
                             />
-                            <button
-                                className="mt-6 text-lg font-semibold bg-[#1a75ff] w-[17.5rem] text-white rounded-lg p-2 block shadow-xl hover:bg-[#0b5ed7]"
-                                onClick={() => {
-                                    loginToDashboard();
-                                }}
-                            >
-                                Login
-                            </button>
                         </div>
+                        <button
+                            className="mt-6 text-lg font-semibold bg-[#1a75ff] w-[17.5rem] text-white rounded-lg p-2 block shadow-xl hover:bg-[#0b5ed7]"
+                            onClick={() => {
+                                loginToDashboard();
+                            }}
+                        >
+                            Login
+                        </button>
+                        <p className="text-sm font-light text-gray-500 mt-2 cursor-pointer">
+                            Don't have an account?{" "}
+                            <span
+                                className="font-medium hover:underline text-blue-500"
+                                onClick={() => navigate("/signUp")}
+                            >
+                                SignUp Here
+                            </span>
+                        </p>
                     </div>
                 </div>
                 <div className="rounded">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import GetCookies from "./Cookies/GetCookies";
 
 const Teams = () => {
     const navigate = useNavigate();
@@ -10,8 +11,13 @@ const Teams = () => {
 
     useEffect(() => {
         axios
-            .get(
-                "http://127.0.0.1:8090/api/v1/users/getUsers?page=1&limit=200&search="
+            .post(
+                "http://127.0.0.1:8090/api/v1/users/getUsers?page=1&limit=200&search=",
+                {
+                    Cookies: {
+                        UserToken: GetCookies("UserToken"),
+                    },
+                }
             )
             .then((res) => {
                 SetData(res.data);

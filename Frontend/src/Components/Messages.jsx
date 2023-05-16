@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import GetCookies from "./Cookies/GetCookies";
 
 const Messages = () => {
     const [data, SetData] = useState([]);
@@ -7,8 +8,13 @@ const Messages = () => {
 
     useEffect(() => {
         axios
-            .get(
-                "http://127.0.0.1:8090/api/v1/users/getUsers?page=1&limit=200&search="
+            .post(
+                "http://127.0.0.1:8090/api/v1/users/getUsers?page=1&limit=200&search=",
+                {
+                    Cookies: {
+                        UserToken: GetCookies("UserToken"),
+                    },
+                }
             )
             .then((res) => {
                 SetData(res.data);
@@ -35,9 +41,9 @@ const Messages = () => {
                                     </th>
                                 </tr>
                             </thead>
-                            {data.map((item) => {
+                            {data.map((item, index) => {
                                 return (
-                                    <tbody>
+                                    <tbody key={index}>
                                         <tr className="bg-white border-b-2">
                                             <th
                                                 scope="row"

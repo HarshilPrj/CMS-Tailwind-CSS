@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginOut } from "../../Actions/index";
+import RemoveCookies from "../Cookies/RemoveCookies";
 
 const Header = ({ authStatus }) => {
     const [show, setShow] = useState(false);
@@ -65,20 +66,25 @@ const Header = ({ authStatus }) => {
                                     </svg>
                                 </button>
 
-                                <div
-                                    id="dropdown"
-                                    className={`hidden bg-white rounded-lg border-2 p-4`}
-                                >
-                                    <button
-                                        className="text-base bg-[#1a75ff] w-[14rem] text-white rounded-lg p-2 shadow-xl hover:bg-[#0b5ed7]"
-                                        onClick={() => {
-                                            navigate("/");
-                                            dispatch(loginOut());
-                                        }}
+                                {show ? (
+                                    <div
+                                        id="dropdown"
+                                        className={`bg-white rounded-lg p-4 w-full`}
                                     >
-                                        Logout
-                                    </button>
-                                </div>
+                                        <button
+                                            className="text-base bg-[#1a75ff] w-[10rem] text-white rounded-lg p-2 shadow-xl hover:bg-[#0b5ed7]"
+                                            onClick={() => {
+                                                navigate("/");
+                                                dispatch(loginOut());
+                                                RemoveCookies("UserToken");
+                                            }}
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                         </div>
                     </div>
