@@ -11,6 +11,8 @@ import Messages from "../Messages";
 import { useSelector } from "react-redux";
 import Orders from "../Orders";
 import AddUser from "../AddUser";
+import Tasks from "../Tasks";
+import Settings from "../Settings";
 
 const LayoutView = () => {
     const myState = useSelector((state) => state.checkLogin);
@@ -47,6 +49,8 @@ const LayoutView = () => {
                         <Route path="/massages" element={<Messages />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/signUp" element={<AddUser />} />
+                        <Route path="/tasks" element={<Tasks />} />
+                        <Route path="/settings" element={<Settings />} />
                     </Routes>
                 </div>
             </AuthContext.Provider>

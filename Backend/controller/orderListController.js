@@ -1,5 +1,6 @@
 const Product = require("../models/ProductModel");
-const Sequelize = require("../database/dbConfig");
+const sequelize = require("../database/dbConfig");
+const { Op } = require("sequelize");
 
 const orderList = async (req, res) => {
     const { page, limit, search } = req.query;
@@ -8,7 +9,7 @@ const orderList = async (req, res) => {
         let data = await Product.findAndCountAll({
             offset: (page - 1) * limit,
             limit: limit,
-            where: Sequelize.literal(
+            where: sequelize.literal(
                 `status ${search === "3" ? "!=" : "="} ${search}`
             ),
         });

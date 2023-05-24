@@ -40,6 +40,16 @@ const User = sequelize.define(
             allowNull: false,
             defaultValue: false,
         },
+        is_deleted: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        is_enable: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true,
+        },
     },
     {
         timestamps: false,

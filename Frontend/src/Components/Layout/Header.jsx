@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginOut } from "../../Actions/index";
+import { loginOut, sreachValue } from "../../Actions/index";
 import RemoveCookies from "../Cookies/RemoveCookies";
 
 const Header = ({ authStatus }) => {
@@ -25,6 +25,9 @@ const Header = ({ authStatus }) => {
                         <div className="flex flex-row px-10 py-6">
                             <i className="fi fi-rs-search opacity-40 mt-2" />
                             <input
+                                onChange={(e) => {
+                                    dispatch(sreachValue(e.target.value));
+                                }}
                                 type="text"
                                 className="outline-0 ml-4 grow"
                                 placeholder="Enter your search text"
@@ -65,14 +68,13 @@ const Header = ({ authStatus }) => {
                                         ></path>
                                     </svg>
                                 </button>
-
                                 {show ? (
                                     <div
                                         id="dropdown"
-                                        className={`bg-white rounded-lg p-4 w-full`}
+                                        className="bg-white rounded-md p-2 w-auto shadow-md z-auto"
                                     >
                                         <button
-                                            className="text-base bg-[#1a75ff] w-[10rem] text-white rounded-lg p-2 shadow-xl hover:bg-[#0b5ed7]"
+                                            className="text-base bg-[#1a75ff] w-[11rem] text-white rounded-lg p-2 shadow-xl hover:bg-[#0b5ed7]"
                                             onClick={() => {
                                                 navigate("/");
                                                 dispatch(loginOut());
@@ -81,6 +83,62 @@ const Header = ({ authStatus }) => {
                                         >
                                             Logout
                                         </button>
+                                        <div className="flex flex-col py-3">
+                                            <p className="tracking-widest text-sm bg-gray-200 p-1.5 rounded">
+                                                CONTENT
+                                            </p>
+                                            <div className="flex flex-row cursor-pointer">
+                                                <i className="fi fi-rr-heart text-xl" />{" "}
+                                                <p className="px-2 text-sm">
+                                                    Favorites
+                                                </p>
+                                                <i className="fi fi-sr-angle-small-right absolute right-0" />
+                                            </div>
+                                            <div className="flex flex-row cursor-pointer">
+                                                <i className="fi fi-rr-cloud-download-alt text-xl" />{" "}
+                                                <p className="px-2 text-sm">
+                                                    Download
+                                                </p>
+                                                <i className="fi fi-sr-angle-small-right absolute right-0" />
+                                            </div>
+                                        </div>
+
+                                        <p className="tracking-widest text-sm bg-gray-200 p-1.5 rounded">
+                                            PREFERENCES
+                                        </p>
+                                        <div className="flex flex-row cursor-pointer">
+                                            <i className="fi fi-rr-globe text-xl" />{" "}
+                                            <p className="px-2 text-sm">
+                                                Langauges
+                                            </p>
+                                            <i className="fi fi-sr-angle-small-right absolute right-0" />
+                                        </div>
+                                        <div className="flex flex-row cursor-pointer">
+                                            <i className="fi fi-rs-moon text-xl" />{" "}
+                                            <p className="px-2 text-sm">
+                                                Dark Mode
+                                            </p>
+                                            <label className="absolute inline-flex items-center cursor-pointer right-0 ml-2">
+                                                <input
+                                                    type="checkbox"
+                                                    className="sr-only peer"
+                                                />
+                                                <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-400 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                            </label>
+                                        </div>
+                                        <div className="flex flex-row cursor-pointer">
+                                            <i className="fi fi-rr-wifi text-xl" />{" "}
+                                            <p className="px-2 text-sm">
+                                                Download Ony Via Wifi
+                                            </p>
+                                            <label className="absolute inline-flex items-center cursor-pointer right-0 ml-2">
+                                                <input
+                                                    type="checkbox"
+                                                    className="sr-only peer"
+                                                />
+                                                <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-400 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                            </label>
+                                        </div>
                                     </div>
                                 ) : (
                                     ""

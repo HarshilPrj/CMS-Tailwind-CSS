@@ -27,7 +27,8 @@ const getUsers = async (req, res) => {
         if (!user) {
             return res.status(400).send({ error: "Login Required" });
         } else {
-            let data = await User.findAll({
+            let data = await User.findAndCountAll({
+                order: [["created_on", "DESC"]],
                 attributes: { exclude: ["pass"] },
                 include: [
                     {
@@ -35,10 +36,11 @@ const getUsers = async (req, res) => {
                         attributes: ["user_role", ["id", "RoleID"]],
                     },
                 ],
-                order: ["created_on"],
+
                 offset: (page - 1) * limit,
                 limit: limit,
                 where: {
+                    [Op.and]: [{ is_enable: true }],
                     [Op.or]: [
                         sequelize.where(sequelize.col("first_name")),
                         {
@@ -92,7 +94,6 @@ const updateUser = async (req, res) => {
                 [Op.and]: [{ id: req.params.id }, { is_enable: true }],
             },
         });
-        console.log(updateUserData);
 
         if (updateUserData[0] !== 0) {
             return res

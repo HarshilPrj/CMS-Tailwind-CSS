@@ -15,3 +15,10 @@ export const loginInOut = () => {
         type: "InOut",
     };
 };
+
+export const sreachValue = (data) => {
+    return {
+        type: "Sreach",
+        payload: data,
+    };
+};
