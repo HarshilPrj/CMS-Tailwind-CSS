@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Users from "../Users";
 import Login from "../Login";
 import AuthContext from "../AuthContext";
@@ -8,11 +9,12 @@ import Header from "./Header";
 import Dashboard from "../Dashboard";
 import Teams from "../Teams";
 import Messages from "../Messages";
-import { useSelector } from "react-redux";
 import Orders from "../Orders";
 import AddUser from "../AddUser";
 import Tasks from "../Tasks";
 import Settings from "../Settings";
+import NavigationRoutes from "./NavigationRoutes";
+import Applications from "../Applications";
 
 const LayoutView = () => {
     const myState = useSelector((state) => state.checkLogin);
@@ -40,6 +42,11 @@ const LayoutView = () => {
                     id="rootDiv"
                 >
                     {myState !== null ? <Header authStatus={authStatus} /> : ""}
+                    {myState !== null ? (
+                        <NavigationRoutes authStatus={authStatus} />
+                    ) : (
+                        ""
+                    )}
 
                     <Routes>
                         <Route path="/" element={<Login />} />
@@ -51,6 +58,10 @@ const LayoutView = () => {
                         <Route path="/signUp" element={<AddUser />} />
                         <Route path="/tasks" element={<Tasks />} />
                         <Route path="/settings" element={<Settings />} />
+                        <Route
+                            path="/applications"
+                            element={<Applications />}
+                        />
                     </Routes>
                 </div>
             </AuthContext.Provider>

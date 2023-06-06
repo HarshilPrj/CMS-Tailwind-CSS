@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import AuthContext from "../AuthContext";
@@ -7,7 +7,6 @@ import ClickAwayListener from "react-click-away-listener";
 
 const SideBar = () => {
     const auth = useContext(AuthContext);
-    let navigate = useNavigate();
     const handleClickAway = () => {
         if (auth.status === true) {
             auth.login();
@@ -49,7 +48,6 @@ const SideBar = () => {
                             className="h-[3.5rem] w-[4rem]"
                             src="earth.png"
                             alt="error"
-                            onClick={() => navigate("/")}
                         />
                     </div>
                     <Container className="mt-8">

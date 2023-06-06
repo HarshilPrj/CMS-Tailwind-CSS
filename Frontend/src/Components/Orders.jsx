@@ -8,7 +8,6 @@ const Orders = () => {
     const [data, SetData] = useState([]);
     const [search, SetSearch] = useState(3);
     const [endpage, setEndpage] = useState(1);
-    let count = 0;
 
     useEffect(() => {
         axios
@@ -20,7 +19,7 @@ const Orders = () => {
                 SetData(res.data.rows);
             });
         setEndpage(Math.ceil(ent / limit));
-    }, [count, search, page, limit, ent]);
+    }, [search, page, limit, ent]);
 
     return (
         <div className="shadow-lg rounded p-4">
@@ -116,20 +115,22 @@ const Orders = () => {
                                     <td className="px-6 py-4">
                                         $ {item.price}
                                     </td>
-                                    <td
-                                        className={`text-center rounded-full ${
-                                            item.status === 0
-                                                ? "bg-orange-400"
+                                    <td className="px-6 py-4">
+                                        <span
+                                            className={`text-base font-medium text-center p-2 rounded-xl ${
+                                                item.status === 0
+                                                    ? "bg-orange-400"
+                                                    : item.status === 1
+                                                    ? "bg-green-400"
+                                                    : "bg-red-500 text-white"
+                                            }`}
+                                        >
+                                            {item.status === 0
+                                                ? "Pending"
                                                 : item.status === 1
-                                                ? "bg-green-400"
-                                                : "bg-red-400 text-white"
-                                        }`}
-                                    >
-                                        {item.status === 0
-                                            ? "Pending"
-                                            : item.status === 1
-                                            ? "Completed"
-                                            : "Canceled"}
+                                                ? "Completed"
+                                                : "Canceled"}
+                                        </span>
                                     </td>
                                 </tr>
                             );
