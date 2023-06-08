@@ -10,7 +10,7 @@ const User = sequelize.define(
             type: DataTypes.UUID,
             allowNull: false,
             primaryKey: true,
-            defaultValue: UUID.v4(),
+            defaultValue: UUID.v4,
         },
         first_name: {
             type: DataTypes.CITEXT,
@@ -28,12 +28,12 @@ const User = sequelize.define(
         pass: {
             type: DataTypes.CITEXT,
             allowNull: false,
-            validate: {
-                is: {
-                    args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/,
-                    msg: "Passwords Must Be a Strong",
-                },
-            },
+            // validate: {
+            //     is: {
+            //         args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/,
+            //         msg: "Passwords Must Be a Strong",
+            //     },
+            // },
         },
         like: {
             type: DataTypes.BOOLEAN,
@@ -49,6 +49,11 @@ const User = sequelize.define(
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true,
+        },
+        created_on: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Date.now,
         },
     },
     {
