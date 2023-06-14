@@ -39,9 +39,7 @@ const Orders = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 1
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 1 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer font-bold`}
                     onClick={() => SetSearch(1)}
                 >
@@ -49,9 +47,7 @@ const Orders = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 0
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 0 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer font-bold`}
                     onClick={() => SetSearch(0)}
                 >
@@ -59,9 +55,7 @@ const Orders = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 2
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 2 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer font-bold`}
                     onClick={() => SetSearch(2)}
                 >
@@ -100,21 +94,13 @@ const Orders = () => {
                             return (
                                 <tr key={index} className="border-b-2">
                                     <td className="px-6 py-4">{index + 1}</td>
+                                    <td className="px-6 py-4">#{item.id.slice(0, 7)}</td>
+                                    <td className="px-6 py-4">{item.product_name}</td>
+                                    <td className="px-6 py-4">{item.address}...</td>
                                     <td className="px-6 py-4">
-                                        #{item.id.slice(0, 7)}
+                                        {item.order_date.slice(0, 10)}
                                     </td>
-                                    <td className="px-6 py-4">
-                                        {item.product_name}
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        {item.address}...
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        {item.order_date}
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        $ {item.price}
-                                    </td>
+                                    <td className="px-6 py-4">$ {item.price}</td>
                                     <td className="px-6 py-4">
                                         <span
                                             className={`text-base font-medium text-center p-2 rounded-xl ${
@@ -139,8 +125,7 @@ const Orders = () => {
                 </table>
                 <div className="flex p-4 justify-between bg-gray-50">
                     <p className="flex">
-                        Showing 1 To {limit <= ent ? limit : ent} of {ent}{" "}
-                        Entries
+                        Showing 1 To {limit <= ent ? limit : ent} of {ent} Entries
                     </p>
                     <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white">
                         <select

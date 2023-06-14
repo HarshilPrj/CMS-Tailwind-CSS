@@ -15,6 +15,7 @@ import Tasks from "../Tasks";
 import Settings from "../Settings";
 import NavigationRoutes from "./NavigationRoutes";
 import Applications from "../Applications";
+import Campaign from "../Campaign";
 
 const LayoutView = () => {
     const myState = useSelector((state) => state.checkLogin);
@@ -42,11 +43,7 @@ const LayoutView = () => {
                     id="rootDiv"
                 >
                     {myState !== null ? <Header authStatus={authStatus} /> : ""}
-                    {myState !== null ? (
-                        <NavigationRoutes authStatus={authStatus} />
-                    ) : (
-                        ""
-                    )}
+                    {myState !== null ? <NavigationRoutes authStatus={authStatus} /> : ""}
 
                     <Routes>
                         <Route path="/" element={<Login />} />
@@ -58,10 +55,8 @@ const LayoutView = () => {
                         <Route path="/signUp" element={<AddUser />} />
                         <Route path="/tasks" element={<Tasks />} />
                         <Route path="/settings" element={<Settings />} />
-                        <Route
-                            path="/applications"
-                            element={<Applications />}
-                        />
+                        <Route path="/applications" element={<Applications />} />
+                        <Route path="/campaigns" element={<Campaign />} />
                     </Routes>
                 </div>
             </AuthContext.Provider>

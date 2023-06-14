@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GetCookies from "./Cookies/GetCookies";
 import { useSelector } from "react-redux";
+import { io } from "socket.io-client";
 
 const Teams = () => {
+    const socket = io("http://localhost:8090/");
     const myState = useSelector((state) => state.sreachValue);
     const navigate = useNavigate();
     const [ent, setEnt] = useState(0);
@@ -37,6 +39,10 @@ const Teams = () => {
                     setFullName("");
                     setRole("");
                     SetCount(count + 1);
+                    socket.on("connect", (socket) => {
+                        console.log(socket.id);
+                    });
+                    socket.emit("create-user", { msg: res.data.message });
                 }
             })
             .catch((err) => {
@@ -109,17 +115,11 @@ const Teams = () => {
                             >
                                 <option value={role}>Choose a Role</option>
                                 <option value={"Admin"}>Admin</option>
-                                <option value={"Super Admin"}>
-                                    Super Admin
-                                </option>
+                                <option value={"Super Admin"}>Super Admin</option>
                                 <option value={"Employee"}>Employee</option>
-                                <option value={"Team Leader"}>
-                                    Team Leader
-                                </option>
+                                <option value={"Team Leader"}>Team Leader</option>
                                 <option value={"HR"}>HR</option>
-                                <option value={"Project Manager"}>
-                                    Project Manager
-                                </option>
+                                <option value={"Project Manager"}>Project Manager</option>
                             </select>
                         </span>
                     </div>
@@ -198,9 +198,7 @@ const Teams = () => {
                                 <h6 className="text-sm mt-4 font-bold">
                                     {item.first_name + " " + item.last_name}
                                 </h6>
-                                <p className="text-xs mt-1 text-gray-500">
-                                    {item.email}
-                                </p>
+                                <p className="text-xs mt-1 text-gray-500">{item.email}</p>
                             </div>
                             <div className="flex w-full flex-row justify-around bg-slate-100 p-4 rounded h-16">
                                 <div className="flex w-auto justify-between">

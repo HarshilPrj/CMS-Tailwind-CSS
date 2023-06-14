@@ -13,10 +13,7 @@ const getUsers = async (req, res) => {
         if (!req.cookies.UserToken) {
             return res.status(400).send({ error: "Login Required" });
         }
-        let sessionId = jwt.verify(
-            req.cookies.UserToken,
-            process.env.JWT_SECKETY
-        );
+        let sessionId = jwt.verify(req.cookies.UserToken, process.env.JWT_SECKETY);
 
         const user = await User.findOne({
             where: {
@@ -54,9 +51,7 @@ const getUsers = async (req, res) => {
             return res.status(200).send(data);
         }
     } catch (error) {
-        return res
-            .status(404)
-            .send({ stack: error.stack, message: error.message });
+        return res.status(404).send({ stack: error.stack, message: error.message });
     }
 };
 
@@ -81,9 +76,7 @@ const createUser = async (req, res) => {
             return res.status(200).send({ message: "Add User Successfully" });
         }
     } catch (error) {
-        return res
-            .status(404)
-            .send({ stack: error.stack, message: error.message });
+        return res.status(404).send({ stack: error.stack, message: error.message });
     }
 };
 
@@ -96,16 +89,12 @@ const updateUser = async (req, res) => {
         });
 
         if (updateUserData[0] !== 0) {
-            return res
-                .status(200)
-                .send({ message: "Update User Successfully" });
+            return res.status(200).send({ message: "Update User Successfully" });
         } else {
             return res.status(401).send({ message: "User Not Found" });
         }
     } catch (error) {
-        return res
-            .status(404)
-            .send({ stack: error.stack, message: error.message });
+        return res.status(404).send({ stack: error.stack, message: error.message });
     }
 };
 
@@ -131,16 +120,12 @@ const loginUser = async (req, res) => {
             });
             res.cookie("UserToken", token, { maxAge: 900000, httpOnly: true });
 
-            return res
-                .status(200)
-                .send({ loginUser, token, msg: "Login Successfully" });
+            return res.status(200).send({ loginUser, token, msg: "Login Successfully" });
         } else {
             return res.status(401).send({ message: "User Not Found" });
         }
     } catch (error) {
-        return res
-            .status(404)
-            .send({ stack: error.stack, message: error.message });
+        return res.status(404).send({ stack: error.stack, message: error.message });
     }
 };
 
@@ -153,9 +138,7 @@ const logoutUser = (req, res) => {
             return res.status(400).send({ error: "Login Required" });
         }
     } catch (error) {
-        return res
-            .status(404)
-            .send({ stack: error.stack, message: error.message });
+        return res.status(404).send({ stack: error.stack, message: error.message });
     }
 };
 

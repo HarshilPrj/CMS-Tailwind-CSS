@@ -35,31 +35,21 @@ const AddUser = () => {
             <div className="grid lg:grid-cols-2 md:grid-cols-1 p-6">
                 <div className="flex flex-col items-center bg-white p-6 h-full rounded">
                     <div className="flex flex-col items-center">
-                        <h4 className="text-[#000054]">
-                            Company Management System
-                        </h4>
+                        <h4 className="text-[#000054]">Company Management System</h4>
                         <h2 className="text-[#000054] mt-2">SIGN UP</h2>
                     </div>
                     <div className="flex flex-col mt-2">
                         <div className="flex flex-col">
-                            <span className="px-1 text-sm text-gray-600">
-                                Role
-                            </span>
+                            <span className="px-1 text-sm text-gray-600">Role</span>
                             <select
                                 className="text-md block px-3 py-2  rounded-lg w-[17.5rem] bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
                                 onChange={(e) => setRole(e.target.value)}
                             >
                                 <option defaultValue={""}>Choose a Role</option>
                                 <option defaultValue={"Admin"}>Admin</option>
-                                <option defaultValue={"Super Admin"}>
-                                    Super Admin
-                                </option>
-                                <option defaultValue={"Employee"}>
-                                    Employee
-                                </option>
-                                <option defaultValue={"Team Leader"}>
-                                    Team Leader
-                                </option>
+                                <option defaultValue={"Super Admin"}>Super Admin</option>
+                                <option defaultValue={"Employee"}>Employee</option>
+                                <option defaultValue={"Team Leader"}>Team Leader</option>
                                 <option defaultValue={"HR"}>HR</option>
                                 <option defaultValue={"Project Manager"}>
                                     Project Manager
@@ -67,9 +57,7 @@ const AddUser = () => {
                             </select>
                         </div>
                         <div className="flex flex-col mt-3">
-                            <span className="px-1 text-sm text-gray-600">
-                                FirstName
-                            </span>
+                            <span className="px-1 text-sm text-gray-600">FirstName</span>
                             <input
                                 onChange={(e) => setFirstName(e.target.value)}
                                 placeholder="Enter FirstName"
@@ -78,9 +66,7 @@ const AddUser = () => {
                             />
                         </div>
                         <div className="flex flex-col mt-3">
-                            <span className="px-1 text-sm text-gray-600">
-                                LastName
-                            </span>
+                            <span className="px-1 text-sm text-gray-600">LastName</span>
                             <input
                                 onChange={(e) => setLastName(e.target.value)}
                                 placeholder="Enter LastName"
@@ -89,9 +75,7 @@ const AddUser = () => {
                             />
                         </div>
                         <div className="flex flex-col mt-3">
-                            <span className="px-1 text-sm text-gray-600">
-                                Email
-                            </span>
+                            <span className="px-1 text-sm text-gray-600">Email</span>
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter Email"
@@ -100,9 +84,7 @@ const AddUser = () => {
                             />
                         </div>
                         <div className="flex flex-col mt-3">
-                            <span className="px-1 text-sm text-gray-600">
-                                Password
-                            </span>
+                            <span className="px-1 text-sm text-gray-600">Password</span>
                             <input
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter Password"

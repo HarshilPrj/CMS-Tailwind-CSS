@@ -37,6 +37,6 @@ const Product = Sequelize.define(
 );
 
 db.Sequelize = Sequelize;
-
 db.Sequelize.sync();
+
 module.exports = Product;
