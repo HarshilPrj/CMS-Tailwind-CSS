@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "proxy": "http://127.0.0.1:8090",
-    "homepage": "http://HarshilPrj.github.io/CMS-Tailwind-CSS",
+    "homepage": "http://HarshilPrj.github.io/CMS-Tailwind-CSS/Frontend",
     "dependencies": {
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
