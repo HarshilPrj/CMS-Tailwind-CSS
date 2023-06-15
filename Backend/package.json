@@ -1,7 +1,7 @@
 {
     "name": "backend",
     "version": "1.0.0",
-    "homepage": "http://HarshilPrj.github.io/CMS-Tailwind-CSS",
+    "homepage": "http://HarshilPrj.github.io/CMS-Tailwind-CSS/Backend",
     "description": "",
     "main": "app.js",
     "scripts": {
