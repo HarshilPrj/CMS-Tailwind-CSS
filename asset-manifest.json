@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/CMS-Tailwind-CSS/static/css/main.490edd49.css",
+    "main.js": "/CMS-Tailwind-CSS/static/js/main.bb393d27.js",
+    "static/media/uicons-regular-rounded-RH4IG3EL.eot": "/CMS-Tailwind-CSS/static/media/uicons-regular-rounded-RH4IG3EL.9e4eb16005635d5792a8.eot",
+    "static/media/uicons-bold-rounded-L3TPIZO3.eot": "/CMS-Tailwind-CSS/static/media/uicons-bold-rounded-L3TPIZO3.4a8ca9a53ecc9744395b.eot",
+    "static/media/uicons-solid-rounded-AR2OJW6X.eot": "/CMS-Tailwind-CSS/static/media/uicons-solid-rounded-AR2OJW6X.aa99dfd74f6cc89949b9.eot",
+    "static/media/uicons-regular-straight-IYZCGYEI.eot": "/CMS-Tailwind-CSS/static/media/uicons-regular-straight-IYZCGYEI.bff72f187050e1014c28.eot",
+    "static/media/uicons-bold-straight-SNHV56WO.eot": "/CMS-Tailwind-CSS/static/media/uicons-bold-straight-SNHV56WO.8a9d38019b6fa61971e2.eot",
+    "static/media/uicons-solid-straight-ER4LF5I5.eot": "/CMS-Tailwind-CSS/static/media/uicons-solid-straight-ER4LF5I5.f6a554445e5b82cf416a.eot",
+    "static/media/uicons-regular-rounded-5XFR2BT2.woff": "/CMS-Tailwind-CSS/static/media/uicons-regular-rounded-5XFR2BT2.fa0bcb79466d8e9c5e58.woff",
+    "static/media/uicons-bold-rounded-IYUSYQGE.woff": "/CMS-Tailwind-CSS/static/media/uicons-bold-rounded-IYUSYQGE.da3f577ccd5ea50ae9e3.woff",
+    "static/media/uicons-solid-rounded-ZENGKUL3.woff": "/CMS-Tailwind-CSS/static/media/uicons-solid-rounded-ZENGKUL3.58957fbbd8cb0cda0d10.woff",
+    "static/media/uicons-regular-rounded-4S7NXRWP.woff2": "/CMS-Tailwind-CSS/static/media/uicons-regular-rounded-4S7NXRWP.07e05a97851d98099fc3.woff2",
+    "static/media/uicons-regular-straight-A3NEHPHR.woff": "/CMS-Tailwind-CSS/static/media/uicons-regular-straight-A3NEHPHR.53b82dce876aa7c1f6da.woff",
+    "static/media/uicons-bold-rounded-YSN7GJCT.woff2": "/CMS-Tailwind-CSS/static/media/uicons-bold-rounded-YSN7GJCT.f076e33fee2ba2585e25.woff2",
+    "static/media/uicons-bold-straight-ZVR7PMGY.woff": "/CMS-Tailwind-CSS/static/media/uicons-bold-straight-ZVR7PMGY.22de4a42e6f3344d89a2.woff",
+    "static/media/uicons-solid-straight-2IRF2J6E.woff": "/CMS-Tailwind-CSS/static/media/uicons-solid-straight-2IRF2J6E.07e6be40679a7b7f424f.woff",
+    "static/media/uicons-solid-rounded-JBS73H5L.woff2": "/CMS-Tailwind-CSS/static/media/uicons-solid-rounded-JBS73H5L.7c48aea089c43b75479e.woff2",
+    "static/media/uicons-regular-straight-ZHZODEXK.woff2": "/CMS-Tailwind-CSS/static/media/uicons-regular-straight-ZHZODEXK.8bec396ab7dda9e0b08d.woff2",
+    "static/media/uicons-bold-straight-Q7RCK7CY.woff2": "/CMS-Tailwind-CSS/static/media/uicons-bold-straight-Q7RCK7CY.64f133ef153dc29c8af3.woff2",
+    "static/media/uicons-solid-straight-ZJPCXP7P.woff2": "/CMS-Tailwind-CSS/static/media/uicons-solid-straight-ZJPCXP7P.904973b6b2ab865ec159.woff2",
+    "static/media/uicons-brands-VIKTI4T2.eot": "/CMS-Tailwind-CSS/static/media/uicons-brands-VIKTI4T2.d0f84423040d1553c68c.eot",
+    "static/media/img.jpg": "/CMS-Tailwind-CSS/static/media/img.546adb0b0878308e93ae.jpg",
+    "static/media/uicons-brands-T5E3MAIR.woff": "/CMS-Tailwind-CSS/static/media/uicons-brands-T5E3MAIR.475adb95157e5c727143.woff",
+    "static/media/uicons-brands-MQU4AHEF.woff2": "/CMS-Tailwind-CSS/static/media/uicons-brands-MQU4AHEF.4dc54c67b0130a18171d.woff2",
+    "static/media/bg-image2.png": "/CMS-Tailwind-CSS/static/media/bg-image2.fecf465990d290f74388.png",
+    "index.html": "/CMS-Tailwind-CSS/index.html",
+    "main.490edd49.css.map": "/CMS-Tailwind-CSS/static/css/main.490edd49.css.map",
+    "main.bb393d27.js.map": "/CMS-Tailwind-CSS/static/js/main.bb393d27.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.490edd49.css",
+    "static/js/main.bb393d27.js"
+  ]
+}
