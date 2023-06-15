@@ -1,14 +1,11 @@
 {
     "name": "backend",
     "version": "1.0.0",
-    "homepage": "http://HarshilPrj.github.io/CMS-Tailwind-CSS/Backend",
     "description": "",
     "main": "app.js",
     "scripts": {
         "start": "nodemon ./app.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "",
