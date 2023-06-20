@@ -19,9 +19,7 @@ const Header = ({ authStatus }) => {
     return (
         <div>
             <header
-                className={`${
-                    authStatus ? "mt-[-40px]" : "mt-[-67px]"
-                } shadow-sm mb-4 `}
+                className={`${authStatus ? "mt-[-40px]" : "mt-[-67px]"} shadow-sm mb-4 `}
             >
                 <nav
                     className="relative grid lg:w-full md:w-10 sm:w-5 items-center justify-between bg-white border-red-700"
@@ -75,9 +73,7 @@ const Header = ({ authStatus }) => {
                                     </svg>
                                 </button>
                                 {show ? (
-                                    <ClickAwayListener
-                                        onClickAway={handleClickAway}
-                                    >
+                                    <ClickAwayListener onClickAway={handleClickAway}>
                                         <div
                                             id="dropdown"
                                             className="bg-white rounded-md p-2 w-auto shadow-md z-auto"
@@ -117,16 +113,12 @@ const Header = ({ authStatus }) => {
                                             </p>
                                             <div className="flex flex-row cursor-pointer">
                                                 <i className="fi fi-rr-globe text-xl" />{" "}
-                                                <p className="px-2 text-sm">
-                                                    Langauges
-                                                </p>
+                                                <p className="px-2 text-sm">Langauges</p>
                                                 <i className="fi fi-sr-angle-small-right absolute right-0" />
                                             </div>
                                             <div className="flex flex-row cursor-pointer">
                                                 <i className="fi fi-rs-moon text-xl" />{" "}
-                                                <p className="px-2 text-sm">
-                                                    Dark Mode
-                                                </p>
+                                                <p className="px-2 text-sm">Dark Mode</p>
                                                 <label className="absolute inline-flex items-center cursor-pointer right-0 ml-2">
                                                     <input
                                                         type="checkbox"
@@ -138,7 +130,7 @@ const Header = ({ authStatus }) => {
                                             <div className="flex flex-row cursor-pointer">
                                                 <i className="fi fi-rr-wifi text-xl" />{" "}
                                                 <p className="px-2 text-sm">
-                                                    Download Ony Via Wifi
+                                                    Download Only Via Wifi
                                                 </p>
                                                 <label className="absolute inline-flex items-center cursor-pointer right-0 ml-2">
                                                     <input

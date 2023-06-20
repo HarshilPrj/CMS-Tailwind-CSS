@@ -10,7 +10,7 @@ const Settings = () => {
         },
         {
             logo: "github",
-            title: "Guthub",
+            title: "Github",
             des: "Link pull requets and automate workflows.",
         },
         {
@@ -78,9 +78,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 2
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 2 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(2)}
                 >
@@ -88,9 +86,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 3
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 3 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(3)}
                 >
@@ -98,9 +94,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 4
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 4 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(4)}
                 >
@@ -108,9 +102,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 5
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 5 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(5)}
                 >
@@ -118,9 +110,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 6
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 6 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(6)}
                 >
@@ -128,9 +118,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 7
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 7 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(7)}
                 >
@@ -138,9 +126,7 @@ const Settings = () => {
                 </p>
                 <p
                     className={`flex ${
-                        search === 8
-                            ? "text-blue-500 underline"
-                            : "text-gray-600"
+                        search === 8 ? "text-blue-500 underline" : "text-gray-600"
                     } cursor-pointer text-sm`}
                     onClick={() => SetSearch(8)}
                 >
@@ -160,14 +146,9 @@ const Settings = () => {
                                     src={`./${item.logo}.png`}
                                     alt="err"
                                 />
-                                <p className="py-2 pl-3 font-semibold">
-                                    {item.title}
-                                </p>
+                                <p className="py-2 pl-3 font-semibold">{item.title}</p>
                                 <label className="absolute inline-flex items-center cursor-pointer right-0">
-                                    <input
-                                        type="checkbox"
-                                        className="sr-only peer"
-                                    />
+                                    <input type="checkbox" className="sr-only peer" />
                                     <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-400 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                 </label>
                             </div>

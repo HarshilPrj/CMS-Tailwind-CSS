@@ -27,7 +27,7 @@ const Applications = () => {
         },
         {
             logo: "github",
-            title: "Guthub",
+            title: "Github",
             des: "Link pull requets and automate workflows.",
         },
         {
@@ -101,9 +101,7 @@ const Applications = () => {
                                     src={`./${item.logo}.png`}
                                     alt="err"
                                 />
-                                <p className="py-2 pl-3 font-semibold">
-                                    {item.title}
-                                </p>
+                                <p className="py-2 pl-3 font-semibold">{item.title}</p>
                                 <div
                                     className="hover:text-sm focus:text-sm active:text-sm"
                                     data-te-toggle="tooltip"
